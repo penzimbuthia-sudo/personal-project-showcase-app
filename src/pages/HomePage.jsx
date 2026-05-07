@@ -2,23 +2,14 @@ import AddProjectForm from "../components/AddProjectForm";
 import SearchBar from "../components/SearchBar";
 import ProjectList from "../components/ProjectList";
 
-function HomePage({
-  projects,
-  addProject,
-  searchTerm,
-  setSearchTerm,
-}) {
+function HomePage({children}) {
   return (
-    <main>
-      <AddProjectForm addProject={addProject} />
-
-      <SearchBar
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-      />
-
-      <ProjectList projects={projects} />
-    </main>
+    <div className="max-w-5xl mx-auto p-6 space-y-6">
+      {children}
+      <AddProjectForm />
+      <SearchBar />
+      <ProjectList />
+    </div>
   );
 }
 

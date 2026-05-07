@@ -6,7 +6,8 @@ import HomePage from "./pages/HomePage";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 
-import projectsData from "./data/projects";
+
+import projectsData from "./data/Project";
 
 function App() {
   const [projects, setProjects] = useState(projectsData);
@@ -21,7 +22,7 @@ function App() {
   );
 
   return (
-    <div>
+    <div className="bg-bg-main min-h-screen">
       <Header />
 
       <Routes>

@@ -21,11 +21,12 @@ function AddProjectForm({ addProject }) {
   }
 
   return (
-    <section className="form-section">
-      <h2>Add Project</h2>
+    <section className="bg-form-light border border-form/20 rounded-card p-6 shadow-card">
+      <h2 className="text-lg font-semibold mb-4">Add Project</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <input
+        className="w-full bg-input-bg border border-border rounded-input p-3 focus:outline-none focus:ring-0 "
           type="text"
           placeholder="Project title"
           value={title}
@@ -33,12 +34,13 @@ function AddProjectForm({ addProject }) {
         />
 
         <textarea
+        className="w-full bg-input-bg border border-border rounded-input p-3 focus:outline-none focus:ring-0 "
           placeholder="Project description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <button type="submit">Add</button>
+        <button className="bg-form hover:bg-sky-200 text-white px-4 py-2 rounded-button transition" type="submit">Add</button>
       </form>
     </section>
   );

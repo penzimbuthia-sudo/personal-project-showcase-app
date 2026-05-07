@@ -12,16 +12,22 @@ function ProjectDetail({ projects }) {
   }
 
   return (
-    <section>
-      <h2>{project.title}</h2>
+    <div className="max-w-3xl mx-auto p-6">
+      <div className="bg-detail-light border border-detail/20 rounded-card shadow-card p-6">
+        <h1 className="text-2xl font-bold mb-4">
+          {project.title}
+        </h1>
 
-      <img
-        src={project.image}
-        alt={project.title}
-      />
+        <img
+          src={project.image}
+          className="w-full rounded-card mb-4"
+        />
 
-      <p>{project.description}</p>
-    </section>
+        <p className="text-text-secondary">
+          {project.description}
+        </p>
+      </div>
+    </div>
   );
 }
 
