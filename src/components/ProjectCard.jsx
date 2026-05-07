@@ -1,30 +1,32 @@
 import { Link } from "react-router-dom";
+import { X } from "lucide-react";
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, deleteProject }) {
   return (
-    <div className="bg-white rounded-card shadow-card p-5 flex gap-4 items-center hover: border-primary hover:shadow-lg transition">
-      
-      <img
-        src={project.image}
-        className="w-16 h-16 rounded-lg object-cover border border-border"
-      />
+    <div
+      className=" bg-white rounded-card shadow-card p-5 hover:shadow-lg transition relative">
+      <button
+        onClick={() => deleteProject(project.id)}
+        className="absolute top-4 right-4 text-danger hover:text-danger-hover transition">
+        <X size={20} />
+      </button>
 
-      <div className="flex-1">
-        <h3 className="font-semibold text-lg">
-          {project.title}
-        </h3>
+      <h3 className="text-xl font-semibold mb-2">
+        {project.title}
+      </h3>
 
-        <p className="text-text-secondary text-sm">
-          {project.description}
-        </p>
+      <p
+        className=" text-text-secondary line-clamp-2 mb-4
+        "
+      >
+        {project.description}
+      </p>
 
-        <Link
-          to={`/project/${project.id}`}
-          className="text-primary hover:text-primary-hover text-sm mt-2 inline-block"
-        >
-          View Details →
-        </Link>
-      </div>
+      <Link
+        to={`/project/${project.id}`}
+        className=" text-form hover:underline font-medium ">
+        View Details →
+      </Link>
     </div>
   );
 }

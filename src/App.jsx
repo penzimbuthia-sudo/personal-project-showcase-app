@@ -17,9 +17,19 @@ function App() {
     setProjects([...projects, newProject]);
   }
 
+  const deleteProject = (id) => {
+  setProjects(
+    projects.filter(
+      (project) => project.id !== id
+    )
+  );
+};
+
   const filteredProjects = projects.filter((project) =>
     project.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+
 
   return (
     <div className="bg-bg-main min-h-screen">
@@ -30,10 +40,12 @@ function App() {
           path="/"
           element={
             <HomePage
-              projects={filteredProjects}
+              projects={projects}
+              filteredProjects={filteredProjects}
               addProject={addProject}
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
+              deleteProject={deleteProject}
             />
           }
         />
