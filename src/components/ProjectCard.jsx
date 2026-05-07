@@ -6,6 +6,7 @@ function ProjectCard({ project, deleteProject }) {
     <div
       className=" bg-white rounded-card shadow-card p-5 hover:shadow-lg transition relative">
       <button
+      // Event handler for deleting a project
         onClick={() => deleteProject(project.id)}
         className="absolute top-4 right-4 text-danger hover:text-danger-hover transition">
         <X size={20} />
@@ -23,6 +24,7 @@ function ProjectCard({ project, deleteProject }) {
       </p>
 
       <Link
+      // Link to dynamic project detail route
         to={`/project/${project.id}`}
         className=" text-form hover:underline font-medium ">
         View Details →

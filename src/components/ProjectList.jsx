@@ -11,6 +11,7 @@ function ProjectList({
           No projects found
         </p>
       ) : (
+        // Loop through all projects and render ProjectCard components
         projects.map((project) => (
           <ProjectCard
             key={project.id}

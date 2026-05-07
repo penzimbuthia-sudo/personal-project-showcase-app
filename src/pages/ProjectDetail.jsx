@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 
 function ProjectDetail({ projects }) {
+  // Get project ID from URL parameters
   const { id } = useParams();
 
+  // Find matching project based on route ID
   const project = projects.find(
     (project) => project.id === Number(id)
   );

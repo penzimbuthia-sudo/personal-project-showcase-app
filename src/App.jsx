@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -10,13 +10,32 @@ import NotFound from "./pages/NotFound";
 import projectsData from "./data/Project";
 
 function App() {
-  const [projects, setProjects] = useState(projectsData);
+  // State for storing all projects
+  const [projects, setProjects] = useState(() => {
+    const savedProjects =
+    localStorage.getItem("projects");
+
+  return savedProjects
+    ? JSON.parse(savedProjects)
+    : projectsData;
+  });
+
+  // State for managing search input
   const [searchTerm, setSearchTerm] = useState("");
 
+  useEffect(() => {
+  localStorage.setItem(
+    "projects",
+    JSON.stringify(projects)
+  );
+}, [projects]);
+
+  // Function for adding a new project
   function addProject(newProject) {
     setProjects([...projects, newProject]);
   }
 
+  // Function for deleting a project
   const deleteProject = (id) => {
   setProjects(
     projects.filter(
@@ -25,6 +44,7 @@ function App() {
   );
 };
 
+// Filter projects dynamically based on search input
   const filteredProjects = projects.filter((project) =>
     project.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
