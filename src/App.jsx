@@ -55,28 +55,34 @@ function App() {
     <div className="bg-bg-main min-h-screen">
       <Header />
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage
-              projects={projects}
-              filteredProjects={filteredProjects}
-              addProject={addProject}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              deleteProject={deleteProject}
-            />
-          }
-        />
+<Routes>
+  <Route
+    path="/"
+    element={
+      <HomePage
+        projects={projects}
+        filteredProjects={filteredProjects}
+        addProject={addProject}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        deleteProject={deleteProject}
+      />
+    }
+  />
 
-        <Route
-          path="/project/:id"
-          element={<ProjectDetail projects={projects} />}
-        />
+  <Route
+    path="/project/:id"
+    element={
+      <ProjectDetail projects={projects} />
+    }
+  />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+  <Route
+    path="*"
+    element={<NotFound />}
+  />
+</Routes>
+
     </div>
   );
 }
